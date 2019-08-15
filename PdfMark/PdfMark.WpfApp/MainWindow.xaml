@@ -13,12 +13,12 @@
         </Grid.RowDefinitions>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Width="80">Folder:</TextBlock>
+                <TextBlock Width="80" Margin="10 0">Folder:</TextBlock>
                 <TextBox x:Name="txtFilePath" MinWidth="360"/>
                 <Button x:Name="btnBrowse" Content="Browse" Click="BtnBrowse_Click"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Width="80">Watermark:</TextBlock>
+                <TextBlock Width="80" Margin="10 0">Watermark:</TextBlock>
                 <!--<TextBox x:Name="txtWatermark" MinWidth="360"/>-->
                 <ComboBox x:Name="cboWatermark" MinWidth="360" Text="Work In Process" IsEditable="True"/>
             </StackPanel>

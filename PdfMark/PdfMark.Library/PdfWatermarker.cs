@@ -19,12 +19,9 @@ namespace PdfMark.Library
             for (var i = 0; i < filePaths.Length; i++)
             {
                 var filePath = filePaths[i];
-                setProgressRatio(i * 1.0f / filePaths.Length, $"{filePath}");
-
                 var copyFilePath = Path.Combine(destinationDirectoryPath, filePath.Replace(pdfDirectoryPath, "").TrimStart('\\'));
 
-                setProgressRatio(i * 1.0f / filePaths.Length, $"{filePath}=>{copyFilePath}");
-
+                setProgressRatio(i * 1.0f / filePaths.Length, $"Watermarking {Path.GetFileName(filePath)}");
                 File.Copy(filePath, copyFilePath, overwrite: true);
                 AddWatermark(copyFilePath, watermark);
             }
