@@ -1,0 +1,32 @@
+﻿<Window x:Class="PdfMark.WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PdfMark.WpfApp"
+        mc:Ignorable="d"
+        Title="Pdf Mark" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="80">Folder:</TextBlock>
+                <TextBox x:Name="txtFilePath" MinWidth="360"/>
+                <Button x:Name="btnBrowse" Content="Browse" Click="BtnBrowse_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="80">Watermark:</TextBlock>
+                <!--<TextBox x:Name="txtWatermark" MinWidth="360"/>-->
+                <ComboBox x:Name="cboWatermark" MinWidth="360" Text="Work In Process" IsEditable="True"/>
+            </StackPanel>
+            <Button x:Name="btnStart" Content="Start" Click="BtnStart_Click"/>
+            <TextBlock x:Name="txtMessage"/>
+            <ProgressBar x:Name="progressBar" Visibility="Collapsed" Height="20"/>
+            <Button x:Name="btnOpenFolder" Content="Open Folder" Click="BtnOpenFolder_Click"/>
+
+        </StackPanel>
+    </Grid>
+</Window>
