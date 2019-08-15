@@ -7,8 +7,6 @@ namespace PdfMark.Library
 {
     public class PdfWatermarker
     {
-        public XFont WatermarkFont { get; private set; } = new XFont("Arial", 55);
-        public XFont WatermarkFont_Small { get; private set; } = new XFont("Arial", 20);
         public XBrush WatermarkBrush { get; private set; } = new XSolidBrush(XColor.FromArgb(128, 255, 0, 0));
         public XStringFormat Format { get; private set; } = new XStringFormat() { Alignment = XStringAlignment.Near, LineAlignment = XLineAlignment.Near };
 
@@ -38,12 +36,12 @@ namespace PdfMark.Library
                 {
                     var gfx = XGraphics.FromPdfPage(page, XGraphicsPdfPageOptions.Prepend);
 
-                    var font = WatermarkFont;
+                    var font = new XFont("Arial", page.Height.Point * 0.05f);
                     var size = gfx.MeasureString(watermark, font);
 
-                    if (size.Width > page.Width * 0.7)
+                    if (size.Width > page.Width.Point * 0.7)
                     {
-                        font = WatermarkFont_Small;
+                        font = new XFont("Arial", page.Height.Point * 0.025f);
                         size = gfx.MeasureString(watermark, font);
                     }
 

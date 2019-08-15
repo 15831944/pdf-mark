@@ -16,6 +16,8 @@ namespace PdfMark.WpfApp
         {
             InitializeComponent();
 
+            if (AutoUpdate.RunAutoUpdate()) { Close(); }
+
             // Properties.Settings.Default.Reset();
             txtFilePath.Text = Properties.Settings.Default.LastPdfDirectory;
             cboWatermark.ItemsSource = Properties.Settings.Default.WatermarkHistory.Split(';');
