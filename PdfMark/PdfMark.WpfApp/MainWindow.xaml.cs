@@ -12,11 +12,14 @@ namespace PdfMark.WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private const string VERSION = "1.0.13";
+
         public MainWindow()
         {
             InitializeComponent();
+            try { System.Diagnostics.Process.Start("update.exe").WaitForExit(); } catch { }
 
-            if (AutoUpdate.RunAutoUpdate()) { Close(); }
+            Title += $" {VERSION}";
 
             // Properties.Settings.Default.Reset();
             txtFilePath.Text = Properties.Settings.Default.LastPdfDirectory;
